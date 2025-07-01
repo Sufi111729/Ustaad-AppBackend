@@ -93,8 +93,10 @@ public class BusinessController {
         Path path = Paths.get(uploadDir + fileName);
         Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
 
-        String imageUrl = "http://localhost:8080/" + fileName;
-        return ResponseEntity.ok(imageUrl);
+        String imageUrl = "http://localhost:8080/" + fileName + "," +
+                "http://ustaad-appbackend-production.up.railway.app/" + fileName;
+return ResponseEntity.ok(imageUrl);
+
     }
 
     @PostMapping("/{id}/rate")
